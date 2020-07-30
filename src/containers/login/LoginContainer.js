@@ -30,7 +30,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("aaaaaa",state.LoginReducers.loginData)
   return {
      error: state.LoginReducers.error,
     loginState: state.LoginReducers.state, //erro: -1, Success: 1, default:0

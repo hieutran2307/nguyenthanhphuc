@@ -20,7 +20,7 @@ import NextArrowButton from '../custom/NextArrowButton';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export default class DanhSachMonHoc extends React.Component {
+export default class KiemtraCode extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +33,13 @@ export default class DanhSachMonHoc extends React.Component {
     });
   };
 
+  onPressLogin = async () => {
+    const {postKiemTraCodeAction} = this.props;
+    const {code} = this.state;
+    postKiemTraCodeAction({
+        code: code
+        });
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -54,7 +61,7 @@ export default class DanhSachMonHoc extends React.Component {
             <TextInput
               placeholder="Vui lòng nhập mã code"
               style={styles.input}
-              value={this.state.username}
+              value={this.state.code}
               onChangeText={(text) => this.onCodeChange(text)}
             />
           </View>

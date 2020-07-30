@@ -47,7 +47,7 @@ export default class Home extends React.Component {
             <View style={styles.colMainLeft}>
               <TouchableOpacity
                 onPress={() =>
-                  this.props.navigation.navigate('DanhSachMonHoc')
+                  this.props.navigation.navigate('KiemTraCode')
                 }>
                 <View
                   colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
@@ -63,7 +63,7 @@ export default class Home extends React.Component {
                         style={styles.imageBoxChucNang}
                       />
                     </View>
-                    <Text style={styles.textchucnang}>Lịch kiểm tra</Text>
+                    <Text style={styles.textchucnang}>Kiểm tra</Text>
                   </View>
                 </View>
               </TouchableOpacity>

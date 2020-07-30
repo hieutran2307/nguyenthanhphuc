@@ -30,6 +30,10 @@ import DanhSachChuDeContainer from '../containers/tracnghiem/DanhSachChuDeContai
 import LamBai from '../components/tracnghiem/LamBai';
 import HoanThanh from '../components/tracnghiem/HoanThanh';
 import HomeGiaoVien from '../components/giaovien/HomeGiaoVien';
+
+// tao mới
+import KiemtraCodeContainers from './kiemtra/KiemtraCodeContainers';
+
 const TabNavigator = createBottomTabNavigator({
   Home: {
     screen: Home,
@@ -93,6 +97,13 @@ const RootStack = createStackNavigator(
     HomeGiaoVien: {
       screen: HomeGiaoVien,
     },
+
+// moi
+KiemTraCode:{
+  screen:KiemtraCodeContainers
+},
+
+
     // se xoa sau
     MyModal: {
       screen: TAB,
