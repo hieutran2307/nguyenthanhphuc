@@ -18,56 +18,100 @@ import {Sizes} from '@dungdang/react-native-basic';
 import Headers from '../../custom/Headers';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {/* userProfile,*/ API_PUBLIC} from '../../../config/settings';
-
+import MultiSelect from 'react-native-multiple-select';
 export default class ThemLopHocPhan extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tenlop: '',
-      soluong: '',
+      idlophocphan: this.props.navigation.getParam('id'),
+      tenlophocphan: '',
+      idgiaovien: '',
+      idmonhoc:'',
+      danhsachgiangvien: [],
+      danhsachmonhoc:[]
+     
     };
   }
-  tenlopChange = (value) => {
+  onSelectedItemsChange = (selectedItems) => {
     this.setState({
-        tenlop: value,
+      selectedItems,
+      idgiaovien: selectedItems[0],
     });
+    //Set Selected Items
   };
-  soluongChange = (value) => {
+
+  onSelectedItemsMonHocChange = (selectedItemsMonHoc) => {
     this.setState({
-        soluong: value,
+      selectedItemsMonHoc,
+      idmonhoc: selectedItemsMonHoc[0],
+    });
+    //Set Selected Items
+  };
+
+  tenlophocphanChange = (value) => {
+    this.setState({
+      tenlophocphan: value,
     });
   };
 
+  componentDidMount() {
+    fetch(`${API_PUBLIC}/kiemtra/danhsachgiangvien.php`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log('danh sach giang vien', responseJson);
+        this.setState({
+          danhsachgiangvien: responseJson,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      fetch(`${API_PUBLIC}/kiemtra/danhsachmonhochp.php`)
+      .then((response) => response.json())
+      .then((res) => {
+        console.log('danh sach mon hoc theo hoc phan', res);
+        this.setState({
+          danhsachmonhoc: res,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   // gui du lieu len server
-async taomonhoc(){
-    fetch(`${API_PUBLIC}/kiemtra/themlophoc.php`, {
+  async taomonhoc() {
+    fetch(`${API_PUBLIC}/kiemtra/themlophocphan.php`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        tenlop:this.state.tenlop,
-        soluong:this.state.soluong,
-        
+        tenhocphan: this.state.tenlophocphan,
+        idthanhvien: this.state.idgiaovien,
+        idmonhoc:this.state.idmonhoc,
+        idlop:this.state.idlophocphan
       }),
     })
-    .then((response) => response.json())
-        .then((responseData) => {
-            console.log("data tao lop hoc",responseData)
-           if(responseData.statusCode === "200"){
-                this.props.navigation.navigate('DanhSachLopHoc')
-           }
-        })
+      .then((response) => response.json())
+      .then((responseData) => {
+        console.log('data tao lop hoc', responseData);
+        if (responseData.statusCode === '200') {
+          this.props.navigation.navigate('DanhSachLopHocPhan');
+        }
+      });
   }
   render() {
+    const {selectedItems,selectedItemsMonHoc} = this.state;
+    console.log("id mon hoc", this.state.idmonhoc)
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <Headers
-            title="Tạo môn học"
+            title="Tạo lớp học phần"
             onPressBackButton={() => {
-              this.props.navigation.goBack(''); 
+              this.props.navigation.goBack('');
             }}
           />
         </View>
@@ -76,33 +120,98 @@ async taomonhoc(){
             style={styles.img}
             source={require('../../../res/images/lophoc.png')}
           />
-          <View style={{marginTop: Sizes.s20}}>
+
+<View style={{marginTop: Sizes.s20}}>
             <View style={styles.labelContainer}>
               <Text caption medium style={styles.label}>
-                Tên lớp học
+                Lớp học phần
               </Text>
             </View>
             <TextInput
               style={styles.input}
-              value={this.state.tenlop}
-              onChangeText={(text) => this.tenlopChange(text)}
-            />
-          </View>
-       
-          <View style={{marginTop: Sizes.s20}}>
-            <View style={styles.labelContainer}>
-              <Text caption medium style={styles.label}>
-                Số sinh viên
-              </Text>
-            </View>
-            <TextInput
-              style={styles.input}
-              value={this.state.soluong}
-              onChangeText={(text) => this.soluongChange(text)}
+              value={this.state.tenlophocphan}
+              onChangeText={(text) => this.tenlophocphanChange(text)}
             />
           </View>
 
-          <TouchableOpacity style={styles.btn} onPress={()=>this.taomonhoc()}>
+
+          <View style={{marginTop: Sizes.s20}}>
+            <View style={styles.labelContainer}>
+              <Text caption medium style={styles.label}>
+                Tên giảng viên
+              </Text>
+            </View>
+
+            <MultiSelect
+              items={this.state.danhsachgiangvien}
+              uniqueKey="id"
+              ref={(component) => {
+                this.multiSelect = component;
+              }}
+              onSelectedItemsChange={this.onSelectedItemsChange}
+              selectedItems={selectedItems}
+              selectText={this.state.name}
+              searchInputPlaceholderText="Search Items..."
+              onChangeInput={(text) => console.log('aaaaaa')}
+              tagRemoveIconColor="#CCC"
+              tagBorderColor="#CCC"
+              tagTextColor="#CCC"
+              selectedItemTextColor="#CCC"
+              selectedItemIconColor="#CCC"
+              itemTextColor="#000"
+              displayKey="name"
+              searchInputStyle={{color: '#CCC'}}
+              submitButtonColor="#48d22b"
+              submitButtonText="Chọn"
+              fontSize={Sizes.s35}
+              itemFontSize={Sizes.s40}
+              styleDropdownMenu={Sizes.s40}
+            />
+          </View>
+
+
+
+
+
+
+
+          <View style={{marginTop: Sizes.s20}}>
+            <View style={styles.labelContainer}>
+              <Text caption medium style={styles.label}>
+                Môn học
+              </Text>
+            </View>
+
+            <MultiSelect
+              items={this.state.danhsachmonhoc}
+              uniqueKey="id"
+              ref={(component) => {
+                this.multiSelect = component;
+              }}
+              onSelectedItemsChange={this.onSelectedItemsMonHocChange}
+              selectedItems={selectedItemsMonHoc}
+              selectText={this.state.name}
+              searchInputPlaceholderText="Search Items..."
+              onChangeInput={(text) => console.log('aaaaaa')}
+              tagRemoveIconColor="#CCC"
+              tagBorderColor="#CCC"
+              tagTextColor="#CCC"
+              selectedItemTextColor="#CCC"
+              selectedItemIconColor="#CCC"
+              itemTextColor="#000"
+              displayKey="name"
+              searchInputStyle={{color: '#CCC'}}
+              submitButtonColor="#48d22b"
+              submitButtonText="Chọn"
+              fontSize={Sizes.s35}
+              itemFontSize={Sizes.s40}
+              styleDropdownMenu={Sizes.s40}
+            />
+          </View>
+
+
+
+          <TouchableOpacity style={styles.btn} onPress={() => this.taomonhoc()}>
             <Text style={styles.textbtn}>Tạo mới</Text>
           </TouchableOpacity>
         </View>

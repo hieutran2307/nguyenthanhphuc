@@ -41,7 +41,7 @@ export default class DanhSachLopHocPhan extends React.Component {
       });
   }
   render() {
-    console.log('get id lop', this.state.danhsachlophoc);
+    console.log('get id lop', this.state.idlop);
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -51,7 +51,9 @@ export default class DanhSachLopHocPhan extends React.Component {
               this.props.navigation.goBack('');
             }}
             onPressShowMenu={() => {
-              this.props.navigation.navigate('ThemLopHocPhan');
+              this.props.navigation.navigate('ThemLopHocPhan',{
+                id:this.state.idlop,
+              })
             }}
           />
         </View>
@@ -69,14 +71,16 @@ export default class DanhSachLopHocPhan extends React.Component {
               <TouchableOpacity
                 style={styles.btn}
                 onPress={() =>
-                  this.props.navigation.navigate('ThemLopHocPhan')
+                  this.props.navigation.navigate('ThemLopHocPhan',{
+                    id:this.state.idlop,
+                  })
                 }>
                 <Text style={styles.txtbtn}>TẠO LỚP HỌC PHẦN</Text>
               </TouchableOpacity>
             </View>
           ) : (
             <FlatList
-              keyExtractor={(item) => item.idlop}
+              keyExtractor={(item) => item.id}
               style={styles.container}
               data={this.state.danhsachlophoc}
               refreshing={this.state.danhsachlophoc}
