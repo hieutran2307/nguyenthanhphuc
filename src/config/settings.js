@@ -6,7 +6,9 @@ var API_PUBLIC = API_URL;
 const errorServerFail = 'Không kết nối được với máy chủ';
 const userProfile = {
   data: {
+    idgiaovien:'',
     idthanhvien: '',
+    gioitinh:'',
     hovaten: '',
     ngaysinh: '',
     sodienthoai: '',
@@ -20,6 +22,8 @@ const userProfile = {
     giohoctap: '',
     tracnghiem: '',
     hinhanh: '',
+    idlop:'',
+    idkhoa:''
   },
   user: '',
   pass: '',

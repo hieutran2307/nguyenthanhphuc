@@ -8,117 +8,71 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 
 import LoginContainer from '../containers/login/LoginContainer';
-
-import Chart from '../components/custom/CustomChart';
-
 import WelcomeScreen from '../components/welcomeScreen/WelcomeScreen';
 
-import Home from '../components/home/Home';
+//chuc nang admin
+import HomeAdmin from '../components/admin/HomeAdmin';
 
-import ThongTinTaiKhoan from '../components/thongtintaikhoan/ThongTinTaiKhoan';
-import ListTinTuc from '../components/tintuc/ListTinTuc';
-import ChiTietTInTuc from '../components/tintuc/ChiTietTInTuc';
-import DanhSachKhoaHoc from '../components/khoahoc/DanhSachKhoaHoc';
-import ChiTietKhoaHoc from '../components/khoahoc/ChiTietKhoaHoc';
-import DanhSachBaiHoc from '../components/khoahoc/DanhSachBaiHoc';
-import ChiTietBaiHoc from '../components/khoahoc/ChiTietBaiHoc';
+//quan ly khoa hoc
+import DanhSachMonHoc from '../components/admin/monhoc/DanhSachMonHoc';
+import ThemMonHoc from '../components/admin/monhoc/ThemMonHoc';
 
-import DanhSachMonHocContainers from '../containers/tracnghiem/DanhSachMonHocContainers';
-import DanhSachChuDeContainer from '../containers/tracnghiem/DanhSachChuDeContainer';
+//qua ly lop hoc
+import DanhSachLopHoc from '../components/admin/lophoc/DanhSachLopHoc';
+import ThemLopHoc from '../components/admin/lophoc/ThemLopHoc';
+
+//quan ly lop hoc phan
+import DanhSachLopHocPhan from '../components/admin/lophoc/DanhSachLopHocPhan';
+import ThemLopHocPhan from '../components/admin/lophoc/ThemLopHocPhan';
+// =========== chuc nang admin end ===============
 
 
-import LamBai from '../components/tracnghiem/LamBai';
-import HoanThanh from '../components/tracnghiem/HoanThanh';
-import HomeGiaoVien from '../components/giaovien/HomeGiaoVien';
+//chuc nang sinh vien
+import HomeSinhVien from '../components/sinhvien/HomeSinhVien';
 
-// tao mới
-import KiemtraCodeContainers from './kiemtra/KiemtraCodeContainers';
 
-const TabNavigator = createBottomTabNavigator({
-  Home: {
-    screen: Home,
-    path: '/',
-    navigationOptions: {
-      title: 'Trang chủ',
-      tabBarIcon: ({focused, tintColor}) => {
-        const iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-        return <Icon name="home" size={20} color="#900" />;
-      },
-    },
-  },
-});
-
-const TAB = createAppContainer(TabNavigator);
 
 const RootStack = createStackNavigator(
   {
     Init: {
       screen: WelcomeScreen,
     },
-    Login: {
-      screen: LoginContainer,
+    Login:{
+      screen:LoginContainer
     },
-    Home: {
-      screen: Home,
-    },
-    ThongTinTaiKhoan: {
-      screen: ThongTinTaiKhoan,
-    },
-    ListTinTuc: {
-      screen: ListTinTuc,
-    },
-    ChiTietTInTuc: {
-      screen: ChiTietTInTuc,
-    },
-    DanhSachKhoaHoc: {
-      screen: DanhSachKhoaHoc,
-    },
-    ChiTietKhoaHoc: {
-      screen: ChiTietKhoaHoc,
-    },
-    DanhSachBaiHoc: {
-      screen: DanhSachBaiHoc,
-    },
-    ChiTietBaiHoc: {
-      screen: ChiTietBaiHoc,
-    },
-    DanhSachMonHoc: {
-      screen: DanhSachMonHocContainers,
-    },
-    DanhSachChuDe: {
-      screen: DanhSachChuDeContainer,
-    },
-    LamBai: {
-      screen: LamBai,
-    },
-    HoanThanh: {
-      screen: HoanThanh,
-    },
-    HomeGiaoVien: {
-      screen: HomeGiaoVien,
-    },
+  //chuc nang sinh vien
+  HomeSinhVien:{
+    screen:HomeSinhVien
+  },
+  // chuc nang admin
+  HomeAdmin:{
+    screen:HomeAdmin
+  },
+  // quan ly khoa hoc
+  DanhSachMonHoc:{
+    screen:DanhSachMonHoc
+  },
+  ThemMonHoc:{
+    screen:ThemMonHoc
+  },
 
-// moi
-KiemTraCode:{
-  screen:KiemtraCodeContainers
-},
+  //quan ly lop hoc
+  DanhSachLopHoc:{
+    screen:DanhSachLopHoc
+  },
+  ThemLopHoc:{
+    screen:ThemLopHoc
+  },
+  //quan ly lop hoc phan 
+  DanhSachLopHocPhan:{
+    screen:DanhSachLopHocPhan
+  },
+  ThemLopHocPhan:{
+    screen:ThemLopHocPhan
+  }
 
-
-    // se xoa sau
-    MyModal: {
-      screen: TAB,
-      navigationOptions: {
-        header: null,
-        title: 'Home',
-      },
-    },
-    Chart: {
-      screen: Chart,
-      navigationOptions: ({navigation}) => ({
-        headerRight: null,
-        title: 'Ahihi',
-      }),
-    },
+  //=========== chuc nang admin end
+    
   },
 
   {

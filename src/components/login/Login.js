@@ -25,8 +25,8 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '1511060038',
-      password: '1511060038',
+      username: '1234',
+      password: '123123',
     };
   }
   onUsernameChange = (value) => {
@@ -50,7 +50,7 @@ export default class Login extends React.Component {
   };
   componentDidUpdate(prevProps) {
     if (prevProps.loginData !== this.props.loginData) {
-      console.log('11111111');
+     //chuc nang admin
       if (
         this.props.statusCode === '200' &&
         this.props.loginData.user.idnhom === '1'
@@ -69,10 +69,33 @@ export default class Login extends React.Component {
         userProfile.data.tracnghiem = this.props.loginData.user.tracnghiem;
         userProfile.data.hinhanh = this.props.loginData.user.hinhanh;
         userProfile.data.idthanhvien = this.props.loginData.user.idnhom;
-        this.props.navigation.replace('Home');
-      } else if (
+        this.props.navigation.replace('HomeAdmin');
+      } else 
+      // chuc nang giao vien
+      if (
         this.props.statusCode === '200' &&
         this.props.loginData.user.idnhom === '2'
+      ) {
+        userProfile.data.hovaten = this.props.loginData.user.hovaten;
+        userProfile.data.ngaysinh = this.props.loginData.user.ngaysinh;
+        userProfile.data.sodienthoai = this.props.loginData.user.sodienthoai;
+        userProfile.data.email = this.props.loginData.user.email;
+        userProfile.data.masosinhvien = this.props.loginData.user.masosinhvien;
+        userProfile.data.khoa = this.props.loginData.user.khoa;
+        userProfile.data.chuyenkhoa = this.props.loginData.user.chuyenkhoa;
+        userProfile.data.nienkhoa = this.props.loginData.user.nienkhoa;
+        userProfile.data.khoahoc = this.props.loginData.user.khoahoc;
+        userProfile.data.thuhang = this.props.loginData.user.thuhang;
+        userProfile.data.giohoctap = this.props.loginData.user.giohoctap;
+        userProfile.data.tracnghiem = this.props.loginData.user.tracnghiem;
+        userProfile.data.hinhanh = this.props.loginData.user.hinhanh;
+        userProfile.data.idthanhvien = this.props.loginData.user.idnhom;
+        this.props.navigation.replace('HomeGiaoVien');
+      } else 
+      // chuc nang sinh vien
+      if (
+        this.props.statusCode === '200' &&
+        this.props.loginData.user.idnhom === '3'
       ) {
         userProfile.data.hovaten = this.props.loginData.user.hovaten;
         userProfile.data.ngaysinh = this.props.loginData.user.ngaysinh;

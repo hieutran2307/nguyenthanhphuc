@@ -73,6 +73,32 @@ export default class Headers extends React.Component {
               {title}
             </Text>
           </View>
+
+        <TouchableOpacity
+          disabled={props.onPressShowMenu === undefined}
+          style={{
+            // position: 'absolute',
+            right: Sizes.s30,
+            width: Sizes.s55,
+            height: Sizes.s55,
+            justifyContent: 'center',
+          }}
+          onPress={() => {
+            props.onPressShowMenu()
+          }}>{
+            props.onPressShowMenu !== undefined &&
+            <Image
+              resizeMode="contain"
+              source={require('../../res/images/add.png')}
+              style={{
+                marginTop:Sizes.s200,
+                width: Sizes.s45,
+                height: Sizes.s45,
+                padding: Sizes.s20,
+              }}
+            />
+          }
+        </TouchableOpacity>
         </View>
       </View>
     );

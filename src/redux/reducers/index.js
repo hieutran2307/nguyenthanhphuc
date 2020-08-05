@@ -1,13 +1,17 @@
 import {combineReducers} from 'redux';
+
+
+
+//tao moi nha
+//chuc nang giaoven
 import LoginReducers from './login/LoginReducers';
-import getDanhSachMonHocReducers from './tracnghiem/DanhSachMonHocreducers';
-import getDanhSachChuDeReducers from './tracnghiem/DanhSachChuDeReducer';
-import KiemtraCodeReducers from './kiemtra/KiemtraCodeReducers';
+
+
+
 const allReducers = combineReducers({
+  // chuc nang giao vien
   LoginReducers,
-  getDanhSachMonHocReducers,
-  getDanhSachChuDeReducers,
-  KiemtraCodeReducers
+ 
 });
 
 export default allReducers;

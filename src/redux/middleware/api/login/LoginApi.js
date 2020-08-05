@@ -10,7 +10,7 @@ export function postLoginApi(input) {
     {
       method: 'POST',
       body: JSON.stringify({
-        masosinhvien: input.username,
+        maso: input.username,
         matkhau: input.password,
       }),
     },
