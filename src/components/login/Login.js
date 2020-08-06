@@ -25,7 +25,7 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '1234',
+      username: '123456',
       password: '123123',
     };
   }
@@ -90,7 +90,7 @@ export default class Login extends React.Component {
         userProfile.data.tracnghiem = this.props.loginData.user.tracnghiem;
         userProfile.data.hinhanh = this.props.loginData.user.hinhanh;
         userProfile.data.idthanhvien = this.props.loginData.user.idnhom;
-        this.props.navigation.replace('HomeGiaoVien');
+        this.props.navigation.replace('HomeGiangVien');
       } else 
       // chuc nang sinh vien
       if (

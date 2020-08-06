@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {userProfile} from '../../config/settings';
 import {/* userProfile,*/ serverpic} from '../../config/settings';
 
-export default class HomeAdmin extends React.Component {
+export default class HomeGiangVien extends React.Component {
   render() {
     return (
       <ImageBackground
@@ -41,13 +41,13 @@ export default class HomeAdmin extends React.Component {
         </View>
         <View style={styles.chucnangview}>
           <Text style={styles.txtchucnang}>
-            Xin chào, Quản trị viên chọn tính năng gì ?
+            Xin chào, Giảng viên vui lòng chọn tính năng ?
           </Text>
           <View style={styles.fullField}>
             <View style={styles.colMainLeft}>
               <TouchableOpacity
                 onPress={() =>
-                  this.props.navigation.navigate('DanhSachMonHoc')
+                  this.props.navigation.navigate('QuanLyBaiKiemTra')
                 }>
                 <View
                   colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
@@ -63,13 +63,15 @@ export default class HomeAdmin extends React.Component {
                         style={styles.imageBoxChucNang}
                       />
                     </View>
-                    <Text style={styles.textchucnang}>Môm học</Text>
+                    <Text style={styles.textchucnang}>
+                      Quản lý bài tập kiểm tra
+                    </Text>
                   </View>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() =>
-                  this.props.navigation.navigate('TuyChonTaiKhoan')
+                  this.props.navigation.navigate('GVDanhSachMonHoc')
                 }>
                 <View
                   colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
@@ -85,7 +87,7 @@ export default class HomeAdmin extends React.Component {
                         style={styles.imageBoxChucNang}
                       />
                     </View>
-                    <Text style={styles.textchucnang}>Tài khoản</Text>
+                    <Text style={styles.textchucnang}>Môn học</Text>
                   </View>
                 </View>
               </TouchableOpacity>
@@ -93,7 +95,7 @@ export default class HomeAdmin extends React.Component {
             <View style={styles.colMainRight}>
               <TouchableOpacity
                 onPress={() =>
-                  this.props.navigation.navigate('DanhSachLopHoc')
+                  this.props.navigation.navigate('GVDanhSachMonHoc')
                 }>
                 <View
                   colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
@@ -107,7 +109,7 @@ export default class HomeAdmin extends React.Component {
                         style={styles.imageBoxChucNang}
                       />
                     </View>
-                    <Text style={styles.textchucnang}> Lớp học </Text>
+                    <Text style={styles.textchucnang}> Tạo kiểm tra</Text>
                   </View>
                 </View>
               </TouchableOpacity>

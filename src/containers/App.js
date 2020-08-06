@@ -29,11 +29,18 @@ import ThemLopHocPhan from '../components/admin/lophoc/ThemLopHocPhan';
 import TuyChonTaiKhoan from '../components/admin/taikhoan/TuyChonTaiKhoan';
 import DanhSachGiangVien from '../components/admin/taikhoan/DanhSachGiangVien';
 import DanhSachSinhVien from '../components/admin/taikhoan/DanhSachSinhVien';
-
-
-
 // =========== chuc nang admin end ===============
 
+/// ================chuc nang giang vien ==============================///
+import HomeGiangVien from '../components/giangvien/HomeGiangVien';
+import QuanLyBaiKiemTra from '../components/giangvien/kiemtra/QuanLyBaiKiemTra';
+import GVDanhSachMonHoc from '../components/giangvien/monhoc/GVDanhSachMonHoc';
+import GVDanhSachLopHocPhan from '../components/giangvien/monhoc/GVDanhSachLopHocPhan';
+import GVDanhSachChuDe from '../components/giangvien/monhoc/GVDanhSachChuDe';
+import TaoChuDe from '../components/giangvien/monhoc/TaoChuDe';
+import GVDanhSachCauHoi from '../components/giangvien/monhoc/GVDanhSachCauHoi';
+import TaoCauHoi from '../components/giangvien/monhoc/TaoCauHoi';
+///============== chuc nang giang vien dong =====================////////
 
 //chuc nang sinh vien
 import HomeSinhVien from '../components/sinhvien/HomeSinhVien';
@@ -91,10 +98,39 @@ const RootStack = createStackNavigator(
   },
   DanhSachSinhVien:{
     screen:DanhSachSinhVien
-  }
+  },
 
   //=========== chuc nang admin end
     
+  //============= chuc nang giang  ven=================//
+  HomeGiangVien:{
+    screen:HomeGiangVien
+  },
+  QuanLyBaiKiemTra:{
+    screen:QuanLyBaiKiemTra
+  },
+  // tao bai kiemtra
+  GVDanhSachMonHoc:{
+    screen:GVDanhSachMonHoc
+  },
+  GVDanhSachLopHocPhan:{
+    screen:GVDanhSachLopHocPhan
+  },
+  GVDanhSachChuDe:{
+    screen:GVDanhSachChuDe
+  },
+  TaoChuDe:{
+    screen:TaoChuDe
+  },
+  GVDanhSachCauHoi:{
+    screen:GVDanhSachCauHoi
+  },
+  TaoCauHoi:{
+    screen:TaoCauHoi
+  }
+
+  // chuc nang giang vien end =======================//
+
   },
 
   {
