@@ -16,7 +16,7 @@ import HomeAdmin from '../components/admin/HomeAdmin';
 //quan ly khoa hoc
 import DanhSachMonHoc from '../components/admin/monhoc/DanhSachMonHoc';
 import ThemMonHoc from '../components/admin/monhoc/ThemMonHoc';
-
+import CapNhatMonHoc from '../components/admin/monhoc/CapNhatMonHoc';
 //qua ly lop hoc
 import DanhSachLopHoc from '../components/admin/lophoc/DanhSachLopHoc';
 import ThemLopHoc from '../components/admin/lophoc/ThemLopHoc';
@@ -54,6 +54,9 @@ const RootStack = createStackNavigator(
   },
   ThemMonHoc:{
     screen:ThemMonHoc
+  },
+  CapNhatMonHoc:{
+    screen:CapNhatMonHoc
   },
 
   //quan ly lop hoc
