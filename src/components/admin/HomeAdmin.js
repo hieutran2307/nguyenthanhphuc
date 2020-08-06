@@ -66,7 +66,7 @@ export default class HomeAdmin extends React.Component {
                 </View>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('KiemTraCode')}>
+                onPress={() => this.props.navigation.navigate('TuyChonTaiKhoan')}>
                 <View
                   colors={['rgb(150,150,150)', 'rgb(105,105,105)']}
                   style={styles.boxMain}>

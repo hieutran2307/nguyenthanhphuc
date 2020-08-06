@@ -24,6 +24,14 @@ import ThemLopHoc from '../components/admin/lophoc/ThemLopHoc';
 //quan ly lop hoc phan
 import DanhSachLopHocPhan from '../components/admin/lophoc/DanhSachLopHocPhan';
 import ThemLopHocPhan from '../components/admin/lophoc/ThemLopHocPhan';
+
+//quan ly tai khoan
+import TuyChonTaiKhoan from '../components/admin/taikhoan/TuyChonTaiKhoan';
+import DanhSachGiangVien from '../components/admin/taikhoan/DanhSachGiangVien';
+import DanhSachSinhVien from '../components/admin/taikhoan/DanhSachSinhVien';
+
+
+
 // =========== chuc nang admin end ===============
 
 
@@ -72,6 +80,17 @@ const RootStack = createStackNavigator(
   },
   ThemLopHocPhan:{
     screen:ThemLopHocPhan
+  },
+  
+  //quan ly tai khoan
+  TuyChonTaiKhoan:{
+    screen:TuyChonTaiKhoan
+  },
+  DanhSachGiangVien:{
+    screen:DanhSachGiangVien
+  },
+  DanhSachSinhVien:{
+    screen:DanhSachSinhVien
   }
 
   //=========== chuc nang admin end

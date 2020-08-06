@@ -19,7 +19,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {/* userProfile,*/ API_PUBLIC} from '../../../config/settings';
 import RBSheet from 'react-native-raw-bottom-sheet';
 
-export default class DanhSachMonHoc extends React.Component {
+export default class DanhSachSinhVien extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
