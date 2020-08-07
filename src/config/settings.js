@@ -1,6 +1,6 @@
-const API_URL = 'http://localhost/elearning';
-const serverpic = 'http://localhost/elearning/img/hinhanh/';
-const serverhinhanh = 'http://localhost/elearning/img/';
+const API_URL = 'https://nguyenthanhphuc20011999.000webhostapp.com/api';
+const serverpic = 'https://nguyenthanhphuc20011999.000webhostapp.com/api/img/hinhanh/';
+const serverhinhanh = 'https://nguyenthanhphuc20011999.000webhostapp.com/api/img/';
 var API_PUBLIC = API_URL;
 
 const errorServerFail = 'Không kết nối được với máy chủ';

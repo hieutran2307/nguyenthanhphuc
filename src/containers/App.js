@@ -40,12 +40,16 @@ import GVDanhSachChuDe from '../components/giangvien/monhoc/GVDanhSachChuDe';
 import TaoChuDe from '../components/giangvien/monhoc/TaoChuDe';
 import GVDanhSachCauHoi from '../components/giangvien/monhoc/GVDanhSachCauHoi';
 import TaoCauHoi from '../components/giangvien/monhoc/TaoCauHoi';
+
+// tạo bài kiểm tra
+import DanhSachKiemTra from '../components/giangvien/taokiemtra/DanhSachKiemTra';
+import ChiTietBaiKiemTra from '../components/giangvien/kiemtra/ChiTietBaiKiemTra';
 ///============== chuc nang giang vien dong =====================////////
 
 //chuc nang sinh vien
 import HomeSinhVien from '../components/sinhvien/HomeSinhVien';
-
-
+import KiemTraCode from '../components/sinhvien/kiemtra/KiemTraCode';
+import BaiKiemTra from '../components/sinhvien//kiemtra/BaiKiemTra';
 
 const RootStack = createStackNavigator(
   {
@@ -127,10 +131,21 @@ const RootStack = createStackNavigator(
   },
   TaoCauHoi:{
     screen:TaoCauHoi
-  }
+  },
+  DanhSachKiemTra:{
+    screen:DanhSachKiemTra
+  },
+  ChiTietBaiKiemTra:{
+    screen:ChiTietBaiKiemTra
+  },
 
   // chuc nang giang vien end =======================//
-
+  KiemTraCode:{
+    screen:KiemTraCode
+  },
+  BaiKiemTra:{
+    screen:BaiKiemTra
+  }
   },
 
   {
