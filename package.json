@@ -20,7 +20,7 @@
     "peer": "^0.5.3",
     "react": "16.13.1",
     "react-backdrop-filter": "^2.1.0",
-    "react-native": "0.63.2",
+    "react-native": "0.64.1",
     "react-native-app-intro-slider": "^3.0.0",
     "react-native-btr": "^1.1.5",
     "react-native-chart-kit": "^5.6.0",
